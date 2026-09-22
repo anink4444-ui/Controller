@@ -1,167 +1,29 @@
-/* Kyuubi DualSense skin for GamepadViewer.com (s=5)
-   Uses controller.png from repository root. */
-
+/* Kyuubi DualSense edit for GamepadViewer s=5
+   Clean calibration build. */
 html, body {
+  margin: 0 !important;
   background: transparent !important;
   overflow: hidden !important;
 }
 
-/* Main controller artwork */
- .edit .controller.ds4,
-.controller.edit,
+/* Kyuubi artwork */
 .controller.ds4.edit,
-.controller.ps5.edit {
+.controller.edit {
   width: 749px !important;
   height: 500px !important;
-  background: url('https://raw.githubusercontent.com/anink4444-ui/Controller/main/controller.png') center center / 749px 500px no-repeat !important;
-  position: relative !important;
-}
-
-/* Keep GamepadViewer input layers visible and above the artwork */
-.edit .button,
-.edit .face,
-.edit .bumper,
-.edit .trigger,
-.edit .stick,
-.edit .touchpad,
-.edit .back,
-.edit .start {
-  z-index: 20 !important;
-}
-
-/* Face buttons */
-.edit .button {
-  background: transparent !important;
-  border-radius: 50% !important;
-  box-shadow: none !important;
-}
-.edit .button.pressed,
-.edit .button.active {
-  background: rgba(255,115,0,.88) !important;
-  box-shadow: inset 0 0 10px rgba(255,210,100,.95),
-              0 0 9px rgba(255,115,0,.75) !important;
-}
-
-/* D-pad: each direction lights separately */
-.edit .dpad .face {
-  background: transparent !important;
-  border-radius: 6px !important;
-  box-shadow: none !important;
-}
-.edit .dpad .face.pressed,
-.edit .dpad .face.active {
-  background: rgba(255,115,0,.9) !important;
-  box-shadow: inset 0 0 9px rgba(255,210,100,.95),
-              0 0 7px rgba(255,115,0,.7) !important;
-}
-
-/* L1/R1 */
-.edit .bumper {
-  background: transparent !important;
-  border-radius: 10px !important;
-  box-shadow: none !important;
-}
-.edit .bumper.pressed,
-.edit .bumper.active {
-  background: rgba(255,115,0,.9) !important;
-  box-shadow: inset 0 0 12px rgba(255,220,120,.95),
-              0 0 8px rgba(255,115,0,.75) !important;
-}
-
-/* L2/R2 */
-.edit .trigger {
-  background: transparent !important;
-  border-radius: 12px !important;
-  box-shadow: none !important;
-}
-.edit .trigger.pressed,
-.edit .trigger.active {
-  background: rgba(255,115,0,.9) !important;
-  box-shadow: inset 0 0 12px rgba(255,220,120,.95),
-              0 0 8px rgba(255,115,0,.75) !important;
-}
-
-/* Movable analog sticks */
-.edit .stick {
-  background: radial-gradient(circle at 44% 40%,
-    #3a3a3a 0 40%,
-    #171717 43% 65%,
-    #ff6a00 68% 75%,
-    transparent 77%) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 0 8px rgba(255,92,0,.65) !important;
-}
-.edit .stick.pressed,
-.edit .stick.active {
-  filter: brightness(1.45) saturate(1.35) !important;
-}
-
-/* No labels/text */
-.edit .button:after,
-.edit .face:after,
-.edit .bumper:after,
-.edit .trigger:after,
-.edit .stick:after {
-  content: none !important;
-}
-
-
-/* Center controller in the GamepadViewer viewport */
-body {
-  margin: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-.controller.edit,
-.controller.ds4.edit,
-.controller.ps5.edit,
-.edit .controller.ds4 {
+  background: url('https://raw.githubusercontent.com/anink4444-ui/Controller/main/controller.png') center / 749px 500px no-repeat !important;
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
-  margin: 0 !important;
-  transform: translate(-50%, -50%) !important;
-  transform-origin: center center !important;
-}
-
-
-/* Viewport centering fix: use viewport units so GamepadViewer wrappers cannot offset the skin */
-.controller.edit,
-.controller.ds4.edit,
-.controller.ps5.edit,
-.edit .controller.ds4 {
-  position: fixed !important;
-  left: 50vw !important;
-  top: 50vh !important;
   right: auto !important;
   bottom: auto !important;
   margin: 0 !important;
   transform: translate(-50%, -50%) !important;
 }
 
-
-/* FINAL positioning override.
-   GamepadViewer's own .controller rule already centers the pad.
-   Undo our transform overrides so we don't double-translate it. */
-.controller.edit,
-.controller.ds4.edit,
-.controller.ps5.edit,
-.edit .controller.ds4 {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin-top: 30px !important;
-  margin-left: 0 !important;
-  transform: translate(-50%, -50%) !important;
-}
-
-
-/* Face-button alignment calibrated from screenshot 2026-09-22.
-   PS mapping: X=a, Circle=b, Square=x, Triangle=y. */
-.ds4.edit .abxy,
-.edit.ds4 .abxy {
+/* FACE BUTTONS
+   Use the complete controller as coordinate space instead of the stock DS4 ABXY box. */
+.ds4.edit .abxy {
   position: absolute !important;
   left: 0 !important;
   top: 0 !important;
@@ -169,54 +31,57 @@ body {
   height: 500px !important;
   transform: none !important;
 }
-.ds4.edit .abxy .button,
-.edit.ds4 .abxy .button {
-  width: 36px !important;
-  height: 36px !important;
+
+.ds4.edit .abxy .button {
+  position: absolute !important;
+  width: 30px !important;
+  height: 30px !important;
   right: auto !important;
   bottom: auto !important;
   margin: 0 !important;
+  background: transparent !important;
   border-radius: 50% !important;
-}
-.ds4.edit .abxy .button.x,
-.edit.ds4 .abxy .button.x { left: 552px !important; top: 109px !important; }
-.ds4.edit .abxy .button.y,
-.edit.ds4 .abxy .button.y { left: 595px !important; top: 73px !important; }
-.ds4.edit .abxy .button.b,
-.edit.ds4 .abxy .button.b { left: 638px !important; top: 109px !important; }
-.ds4.edit .abxy .button.a,
-.edit.ds4 .abxy .button.a { left: 595px !important; top: 147px !important; }
-
-
-/* Fine calibration from user's pressed Square + Triangle + Circle screenshot.
-   Move the whole ABXY highlight cluster onto the artwork. */
-.controller.ds4.edit .abxy,
-.ds4.edit .abxy,
-.edit.ds4 .abxy {
-  transform: translate(-48px, -68px) !important;
+  box-shadow: none !important;
 }
 
-/* Slightly smaller glow so it stays inside the printed PS buttons. */
-.controller.ds4.edit .abxy .button,
-.ds4.edit .abxy .button,
-.edit.ds4 .abxy .button {
-  width: 31px !important;
-  height: 31px !important;
+/* Square, Triangle, Circle, Cross */
+.ds4.edit .abxy .x { left: 543px !important; top: 125px !important; }
+.ds4.edit .abxy .y { left: 594px !important; top: 77px !important; }
+.ds4.edit .abxy .b { left: 643px !important; top: 125px !important; }
+.ds4.edit .abxy .a { left: 594px !important; top: 175px !important; }
+
+.ds4.edit .abxy .button.pressed {
+  background: rgba(255, 106, 0, .82) !important;
+  box-shadow: inset 0 0 8px rgba(255, 220, 120, .95),
+              0 0 7px rgba(255, 106, 0, .72) !important;
 }
 
-
-/* ABXY fine calibration v8 from Square + Triangle screenshot.
-   Existing highlights are ~20px right and ~25px above their printed buttons. */
-.controller.ds4.edit .abxy,
-.ds4.edit .abxy,
-.edit.ds4 .abxy {
-  transform: translate(-68px, -43px) !important;
+/* D-pad: keep stock geometry for now; only show orange when pressed. */
+.ds4.edit .dpad .face {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.ds4.edit .dpad .face.pressed {
+  background: rgba(255, 106, 0, .82) !important;
+  box-shadow: inset 0 0 8px rgba(255, 220, 120, .9) !important;
 }
 
-/* Match the visible printed button diameter more closely. */
-.controller.ds4.edit .abxy .button,
-.ds4.edit .abxy .button,
-.edit.ds4 .abxy .button {
-  width: 28px !important;
-  height: 28px !important;
+/* Shoulder buttons: stock geometry retained until calibrated. */
+.ds4.edit .bumper,
+.ds4.edit .trigger {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+.ds4.edit .bumper.pressed,
+.ds4.edit .trigger.pressed {
+  background: rgba(255, 106, 0, .82) !important;
+}
+
+/* Analog sticks remain movable. */
+.ds4.edit .stick {
+  background: radial-gradient(circle at 44% 40%,
+    #3a3a3a 0 40%, #171717 43% 65%, #ff6a00 68% 75%, transparent 77%) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 8px rgba(255,92,0,.65) !important;
 }
