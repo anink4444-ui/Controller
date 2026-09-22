@@ -175,3 +175,72 @@ html, body {
   background: rgba(255,106,0,.78) !important;
   box-shadow: inset 0 0 7px rgba(255,220,120,.95), 0 0 6px rgba(255,106,0,.7) !important;
 }
+
+
+/* v12 - independent pressed overlays.
+   Keep GamepadViewer's actual buttons only as input-state carriers.
+   The visible orange highlight is drawn by ::after at fixed DS4-artwork coordinates. */
+
+/* Remove every visible pressed fill/glow from the stock ABXY nodes. */
+.edit .controller.ds4 .abxy .button,
+.controller.ds4.edit .abxy .button,
+.ds4.edit .abxy .button,
+.edit .abxy .button {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Each pressed node gets a fixed-position visual overlay.
+   Because the controller itself is 749x500 and centered in the viewport,
+   calc(50% + offset) maps directly to the artwork. */
+.edit .controller.ds4 .abxy .button.pressed::after,
+.controller.ds4.edit .abxy .button.pressed::after,
+.ds4.edit .abxy .button.pressed::after,
+.edit .abxy .button.pressed::after {
+  content: "" !important;
+  display: block !important;
+  position: fixed !important;
+  width: 27px !important;
+  height: 27px !important;
+  border-radius: 50% !important;
+  background: rgba(255,106,0,.82) !important;
+  box-shadow: inset 0 0 7px rgba(255,220,120,.95),
+              0 0 7px rgba(255,106,0,.72) !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* DS4 artwork centers, relative to the 749x500 image center.
+   Square x=497,y=421; Triangle x=532,y=386;
+   Circle x=568,y=421; Cross x=532,y=456 in screenshot-derived image coordinates,
+   converted to the actual controller artwork positions below. */
+.edit .controller.ds4 .abxy .x.pressed::after,
+.controller.ds4.edit .abxy .x.pressed::after,
+.ds4.edit .abxy .x.pressed::after,
+.edit .abxy .x.pressed::after {
+  left: calc(50vw + 110px) !important;
+  top: calc(50vh - 79px) !important;
+}
+.edit .controller.ds4 .abxy .y.pressed::after,
+.controller.ds4.edit .abxy .y.pressed::after,
+.ds4.edit .abxy .y.pressed::after,
+.edit .abxy .y.pressed::after {
+  left: calc(50vw + 145px) !important;
+  top: calc(50vh - 114px) !important;
+}
+.edit .controller.ds4 .abxy .b.pressed::after,
+.controller.ds4.edit .abxy .b.pressed::after,
+.ds4.edit .abxy .b.pressed::after,
+.edit .abxy .b.pressed::after {
+  left: calc(50vw + 181px) !important;
+  top: calc(50vh - 79px) !important;
+}
+.edit .controller.ds4 .abxy .a.pressed::after,
+.controller.ds4.edit .abxy .a.pressed::after,
+.ds4.edit .abxy .a.pressed::after,
+.edit .abxy .a.pressed::after {
+  left: calc(50vw + 145px) !important;
+  top: calc(50vh - 44px) !important;
+}
