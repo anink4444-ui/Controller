@@ -203,3 +203,20 @@ body {
   width: 31px !important;
   height: 31px !important;
 }
+
+
+/* ABXY fine calibration v8 from Square + Triangle screenshot.
+   Existing highlights are ~20px right and ~25px above their printed buttons. */
+.controller.ds4.edit .abxy,
+.ds4.edit .abxy,
+.edit.ds4 .abxy {
+  transform: translate(-68px, -43px) !important;
+}
+
+/* Match the visible printed button diameter more closely. */
+.controller.ds4.edit .abxy .button,
+.ds4.edit .abxy .button,
+.edit.ds4 .abxy .button {
+  width: 28px !important;
+  height: 28px !important;
+}
