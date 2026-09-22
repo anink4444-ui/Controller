@@ -7,12 +7,13 @@ html, body {
 }
 
 /* Main controller artwork */
+ .edit .controller.ds4,
 .controller.edit,
-.ds4.edit,
-.ps5.edit {
+.controller.ds4.edit,
+.controller.ps5.edit {
   width: 749px !important;
   height: 500px !important;
-  background: url('https://anink4444-ui.github.io/Controller/controller.png') center center / 749px 500px no-repeat !important;
+  background: url('https://raw.githubusercontent.com/anink4444-ui/Controller/main/controller.png') center center / 749px 500px no-repeat !important;
   position: relative !important;
 }
 
