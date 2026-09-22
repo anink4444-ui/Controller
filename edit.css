@@ -104,3 +104,22 @@ html, body {
 .edit .stick:after {
   content: none !important;
 }
+
+
+/* Center controller in the GamepadViewer viewport */
+body {
+  margin: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+.controller.edit,
+.controller.ds4.edit,
+.controller.ps5.edit,
+.edit .controller.ds4 {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
+}
