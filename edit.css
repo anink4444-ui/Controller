@@ -298,3 +298,24 @@ body .edit .abxy .a.pressed::after {
   left: calc(50vw + 146px) !important;
   top: calc(50vh - 45px) !important;
 }
+
+
+/* v14 screenshot calibration:
+   Square is aligned. Triangle pseudo-overlay is ~62px left / 60px low.
+   Move only Triangle; leave Square untouched. */
+body .edit .controller.ds4 .abxy .y.pressed::after,
+body .controller.ds4.edit .abxy .y.pressed::after,
+body .ds4.edit .abxy .y.pressed::after,
+body .edit .abxy .y.pressed::after {
+  left: calc(50vw + 208px) !important;
+  top: calc(50vh - 175px) !important;
+}
+
+/* The artwork already has an orange outline; use a subtle inner fill on aligned face buttons. */
+body .edit .controller.ds4 .abxy .button.pressed::after,
+body .controller.ds4.edit .abxy .button.pressed::after,
+body .ds4.edit .abxy .button.pressed::after,
+body .edit .abxy .button.pressed::after {
+  width: 22px !important;
+  height: 22px !important;
+}
