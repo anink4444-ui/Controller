@@ -340,3 +340,25 @@ body .ds4.edit .abxy .y.pressed::after,
 body .edit .abxy .y.pressed::after {
   display: none !important;
 }
+
+
+/* v16 diagnostic correction from user test:
+   User pressed ONLY Square. The active GamepadViewer state is the one currently
+   rendering far to the right. Force that state (.y) onto the printed Square.
+   Keep .x hidden for this single-button mapping test. */
+body .edit .controller.ds4 .abxy .y.pressed::after,
+body .controller.ds4.edit .abxy .y.pressed::after,
+body .ds4.edit .abxy .y.pressed::after,
+body .edit .abxy .y.pressed::after {
+  display: block !important;
+  left: calc(50vw + 111px) !important;
+  top: calc(50vh - 80px) !important;
+  transform: none !important;
+}
+
+body .edit .controller.ds4 .abxy .x.pressed::after,
+body .controller.ds4.edit .abxy .x.pressed::after,
+body .ds4.edit .abxy .x.pressed::after,
+body .edit .abxy .x.pressed::after {
+  display: none !important;
+}
