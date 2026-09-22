@@ -186,3 +186,20 @@ body {
 .edit.ds4 .abxy .button.b { left: 638px !important; top: 109px !important; }
 .ds4.edit .abxy .button.a,
 .edit.ds4 .abxy .button.a { left: 595px !important; top: 147px !important; }
+
+
+/* Fine calibration from user's pressed Square + Triangle + Circle screenshot.
+   Move the whole ABXY highlight cluster onto the artwork. */
+.controller.ds4.edit .abxy,
+.ds4.edit .abxy,
+.edit.ds4 .abxy {
+  transform: translate(-48px, -68px) !important;
+}
+
+/* Slightly smaller glow so it stays inside the printed PS buttons. */
+.controller.ds4.edit .abxy .button,
+.ds4.edit .abxy .button,
+.edit.ds4 .abxy .button {
+  width: 31px !important;
+  height: 31px !important;
+}
