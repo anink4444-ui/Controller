@@ -362,3 +362,44 @@ body .ds4.edit .abxy .x.pressed::after,
 body .edit .abxy .x.pressed::after {
   display: none !important;
 }
+
+
+/* v17 cleanup: hide ALL legacy/generated ABXY pseudo highlights first.
+   We will re-enable exactly one confirmed state at a time. */
+body .abxy .button::before,
+body .abxy .button::after,
+body .edit .abxy .button::before,
+body .edit .abxy .button::after,
+body .controller.ds4 .abxy .button::before,
+body .controller.ds4 .abxy .button::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Confirmed diagnostic: only the Square-trigger state (.y) may render. */
+body .edit .controller.ds4 .abxy .y.pressed::after,
+body .controller.ds4.edit .abxy .y.pressed::after,
+body .ds4.edit .abxy .y.pressed::after,
+body .edit .abxy .y.pressed::after {
+  content: "" !important;
+  display: block !important;
+  position: fixed !important;
+  width: 22px !important;
+  height: 22px !important;
+  left: calc(50vw + 111px) !important;
+  top: calc(50vh - 80px) !important;
+  margin: 0 !important;
+  transform: none !important;
+  border-radius: 50% !important;
+  background: rgba(255,106,0,.84) !important;
+  box-shadow: inset 0 0 6px rgba(255,225,140,.95),0 0 6px rgba(255,106,0,.72) !important;
+  z-index: 2147483647 !important;
+}
+
+/* Explicitly suppress every other face-button pseudo overlay. */
+body .abxy .x.pressed::after,
+body .abxy .a.pressed::after,
+body .abxy .b.pressed::after {
+  content: none !important;
+  display: none !important;
+}
