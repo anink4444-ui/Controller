@@ -1,17 +1,18 @@
-/* Kyuubi DualSense edit for GamepadViewer s=5
-   Clean calibration build. */
+/* Clean DS4 Kyuubi overlay - v18
+   Rebuilt from scratch to remove all conflicting legacy rules. */
 html, body {
   margin: 0 !important;
-  background: transparent !important;
+  width: 100% !important;
+  height: 100% !important;
   overflow: hidden !important;
+  background: transparent !important;
 }
 
-/* Kyuubi artwork */
-.controller.ds4.edit,
-.controller.edit {
+/* Main artwork */
+.controller.ds4,
+.edit .controller.ds4 {
   width: 749px !important;
   height: 500px !important;
-  background: url('https://raw.githubusercontent.com/anink4444-ui/Controller/main/controller.png') center / 749px 500px no-repeat !important;
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
@@ -19,387 +20,34 @@ html, body {
   bottom: auto !important;
   margin: 0 !important;
   transform: translate(-50%, -50%) !important;
-}
-
-/* FACE BUTTONS
-   Use the complete controller as coordinate space instead of the stock DS4 ABXY box. */
-.ds4.edit .abxy {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 749px !important;
-  height: 500px !important;
-  transform: none !important;
-}
-
-.ds4.edit .abxy .button {
-  position: absolute !important;
-  width: 30px !important;
-  height: 30px !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  background: transparent !important;
-  border-radius: 50% !important;
-  box-shadow: none !important;
-}
-
-/* Square, Triangle, Circle, Cross */
-.ds4.edit .abxy .x { left: 543px !important; top: 125px !important; }
-.ds4.edit .abxy .y { left: 594px !important; top: 77px !important; }
-.ds4.edit .abxy .b { left: 643px !important; top: 125px !important; }
-.ds4.edit .abxy .a { left: 594px !important; top: 175px !important; }
-
-.ds4.edit .abxy .button.pressed {
-  background: rgba(255, 106, 0, .82) !important;
-  box-shadow: inset 0 0 8px rgba(255, 220, 120, .95),
-              0 0 7px rgba(255, 106, 0, .72) !important;
-}
-
-/* D-pad: keep stock geometry for now; only show orange when pressed. */
-.ds4.edit .dpad .face {
-  background-image: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-.ds4.edit .dpad .face.pressed {
-  background: rgba(255, 106, 0, .82) !important;
-  box-shadow: inset 0 0 8px rgba(255, 220, 120, .9) !important;
-}
-
-/* Shoulder buttons: stock geometry retained until calibrated. */
-.ds4.edit .bumper,
-.ds4.edit .trigger {
-  background-image: none !important;
-  background-color: transparent !important;
-}
-.ds4.edit .bumper.pressed,
-.ds4.edit .trigger.pressed {
-  background: rgba(255, 106, 0, .82) !important;
-}
-
-/* Analog sticks remain movable. */
-.ds4.edit .stick {
-  background: radial-gradient(circle at 44% 40%,
-    #3a3a3a 0 40%, #171717 43% 65%, #ff6a00 68% 75%, transparent 77%) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 0 8px rgba(255,92,0,.65) !important;
-}
-
-
-/* v10: GamepadViewer puts .edit on a wrapper in s=5.
-   These selectors therefore override the stock DS4 geometry reliably. */
-.edit .controller.ds4 {
-  width: 749px !important;
-  height: 500px !important;
   background: url('https://raw.githubusercontent.com/anink4444-ui/Controller/main/controller.png') center / 749px 500px no-repeat !important;
 }
 
-.edit .controller.ds4 .abxy {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  right: auto !important;
-  bottom: auto !important;
-  width: 749px !important;
-  height: 500px !important;
-  transform: none !important;
-}
-
+/* Hide GamepadViewer's original face-button artwork completely.
+   The controller artwork already contains the symbols. */
+.controller.ds4 .abxy .button,
 .edit .controller.ds4 .abxy .button {
-  position: absolute !important;
-  width: 30px !important;
-  height: 30px !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  background-image: none !important;
-  background-color: transparent !important;
-  border-radius: 50% !important;
-  box-shadow: none !important;
-}
-
-.edit .controller.ds4 .abxy .x { left: 543px !important; top: 125px !important; }
-.edit .controller.ds4 .abxy .y { left: 594px !important; top: 77px !important; }
-.edit .controller.ds4 .abxy .b { left: 643px !important; top: 125px !important; }
-.edit .controller.ds4 .abxy .a { left: 594px !important; top: 175px !important; }
-
-.edit .controller.ds4 .abxy .button.pressed {
-  background: rgba(255,106,0,.82) !important;
-  box-shadow: inset 0 0 8px rgba(255,220,120,.95),
-              0 0 7px rgba(255,106,0,.72) !important;
-}
-
-
-/* v11 DualShock 4 artwork calibration.
-   Face buttons on the new DS4 image are approximately:
-   Square (497,421), Triangle (532,386), Circle (568,421), Cross (532,456)
-   in the displayed 749x500 controller coordinate space. */
-.edit .controller.ds4 .abxy,
-.controller.ds4.edit .abxy,
-.ds4.edit .abxy {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 749px !important;
-  height: 500px !important;
-  transform: none !important;
-}
-.edit .controller.ds4 .abxy .button,
-.controller.ds4.edit .abxy .button,
-.ds4.edit .abxy .button {
-  position: absolute !important;
-  width: 27px !important;
-  height: 27px !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 !important;
-  border-radius: 50% !important;
-}
-.edit .controller.ds4 .abxy .x,
-.controller.ds4.edit .abxy .x,
-.ds4.edit .abxy .x { left: 484px !important; top: 192px !important; }
-.edit .controller.ds4 .abxy .y,
-.controller.ds4.edit .abxy .y,
-.ds4.edit .abxy .y { left: 519px !important; top: 157px !important; }
-.edit .controller.ds4 .abxy .b,
-.controller.ds4.edit .abxy .b,
-.ds4.edit .abxy .b { left: 555px !important; top: 192px !important; }
-.edit .controller.ds4 .abxy .a,
-.controller.ds4.edit .abxy .a,
-.ds4.edit .abxy .a { left: 519px !important; top: 227px !important; }
-
-.edit .controller.ds4 .abxy .button.pressed,
-.controller.ds4.edit .abxy .button.pressed,
-.ds4.edit .abxy .button.pressed {
-  background: rgba(255,106,0,.78) !important;
-  box-shadow: inset 0 0 7px rgba(255,220,120,.95), 0 0 6px rgba(255,106,0,.7) !important;
-}
-
-
-/* v12 - independent pressed overlays.
-   Keep GamepadViewer's actual buttons only as input-state carriers.
-   The visible orange highlight is drawn by ::after at fixed DS4-artwork coordinates. */
-
-/* Remove every visible pressed fill/glow from the stock ABXY nodes. */
-.edit .controller.ds4 .abxy .button,
-.controller.ds4.edit .abxy .button,
-.ds4.edit .abxy .button,
-.edit .abxy .button {
   background: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
   border: 0 !important;
+  opacity: 0 !important;
 }
-
-/* Each pressed node gets a fixed-position visual overlay.
-   Because the controller itself is 749x500 and centered in the viewport,
-   calc(50% + offset) maps directly to the artwork. */
-.edit .controller.ds4 .abxy .button.pressed::after,
-.controller.ds4.edit .abxy .button.pressed::after,
-.ds4.edit .abxy .button.pressed::after,
-.edit .abxy .button.pressed::after {
-  content: "" !important;
-  display: block !important;
-  position: fixed !important;
-  width: 27px !important;
-  height: 27px !important;
-  border-radius: 50% !important;
-  background: rgba(255,106,0,.82) !important;
-  box-shadow: inset 0 0 7px rgba(255,220,120,.95),
-              0 0 7px rgba(255,106,0,.72) !important;
-  z-index: 9999 !important;
-  pointer-events: none !important;
-}
-
-/* DS4 artwork centers, relative to the 749x500 image center.
-   Square x=497,y=421; Triangle x=532,y=386;
-   Circle x=568,y=421; Cross x=532,y=456 in screenshot-derived image coordinates,
-   converted to the actual controller artwork positions below. */
-.edit .controller.ds4 .abxy .x.pressed::after,
-.controller.ds4.edit .abxy .x.pressed::after,
-.ds4.edit .abxy .x.pressed::after,
-.edit .abxy .x.pressed::after {
-  left: calc(50vw + 110px) !important;
-  top: calc(50vh - 79px) !important;
-}
-.edit .controller.ds4 .abxy .y.pressed::after,
-.controller.ds4.edit .abxy .y.pressed::after,
-.ds4.edit .abxy .y.pressed::after,
-.edit .abxy .y.pressed::after {
-  left: calc(50vw + 145px) !important;
-  top: calc(50vh - 114px) !important;
-}
-.edit .controller.ds4 .abxy .b.pressed::after,
-.controller.ds4.edit .abxy .b.pressed::after,
-.ds4.edit .abxy .b.pressed::after,
-.edit .abxy .b.pressed::after {
-  left: calc(50vw + 181px) !important;
-  top: calc(50vh - 79px) !important;
-}
-.edit .controller.ds4 .abxy .a.pressed::after,
-.controller.ds4.edit .abxy .a.pressed::after,
-.ds4.edit .abxy .a.pressed::after,
-.edit .abxy .a.pressed::after {
-  left: calc(50vw + 145px) !important;
-  top: calc(50vh - 44px) !important;
-}
-
-
-/* v13: GamepadViewer marks ABXY with .pressed but the stock node geometry is unreliable.
-   Use the node only as a state trigger and position the pseudo element in viewport space.
-   Strong selectors + transform reset prevent inherited stock transforms. */
-body .edit .controller.ds4 .abxy .button.pressed::after,
-body .controller.ds4.edit .abxy .button.pressed::after,
-body .ds4.edit .abxy .button.pressed::after,
-body .edit .abxy .button.pressed::after {
-  content: "" !important;
-  position: fixed !important;
-  display: block !important;
-  width: 24px !important;
-  height: 24px !important;
-  margin: 0 !important;
-  transform: none !important;
-  border: 0 !important;
-  border-radius: 50% !important;
-  background: rgba(255,106,0,.84) !important;
-  box-shadow: inset 0 0 6px rgba(255,225,140,.95), 0 0 6px rgba(255,106,0,.72) !important;
-  z-index: 2147483647 !important;
-  pointer-events: none !important;
-}
-
-/* Positions measured against the visible DS4 artwork.
-   Values are center-relative and include half the 24px overlay size. */
-body .edit .controller.ds4 .abxy .x.pressed::after,
-body .controller.ds4.edit .abxy .x.pressed::after,
-body .ds4.edit .abxy .x.pressed::after,
-body .edit .abxy .x.pressed::after {
-  left: calc(50vw + 111px) !important;
-  top: calc(50vh - 80px) !important;
-}
-body .edit .controller.ds4 .abxy .y.pressed::after,
-body .controller.ds4.edit .abxy .y.pressed::after,
-body .ds4.edit .abxy .y.pressed::after,
-body .edit .abxy .y.pressed::after {
-  left: calc(50vw + 146px) !important;
-  top: calc(50vh - 115px) !important;
-}
-body .edit .controller.ds4 .abxy .b.pressed::after,
-body .controller.ds4.edit .abxy .b.pressed::after,
-body .ds4.edit .abxy .b.pressed::after,
-body .edit .abxy .b.pressed::after {
-  left: calc(50vw + 182px) !important;
-  top: calc(50vh - 80px) !important;
-}
-body .edit .controller.ds4 .abxy .a.pressed::after,
-body .controller.ds4.edit .abxy .a.pressed::after,
-body .ds4.edit .abxy .a.pressed::after,
-body .edit .abxy .a.pressed::after {
-  left: calc(50vw + 146px) !important;
-  top: calc(50vh - 45px) !important;
-}
-
-
-/* v14 screenshot calibration:
-   Square is aligned. Triangle pseudo-overlay is ~62px left / 60px low.
-   Move only Triangle; leave Square untouched. */
-body .edit .controller.ds4 .abxy .y.pressed::after,
-body .controller.ds4.edit .abxy .y.pressed::after,
-body .ds4.edit .abxy .y.pressed::after,
-body .edit .abxy .y.pressed::after {
-  left: calc(50vw + 208px) !important;
-  top: calc(50vh - 175px) !important;
-}
-
-/* The artwork already has an orange outline; use a subtle inner fill on aligned face buttons. */
-body .edit .controller.ds4 .abxy .button.pressed::after,
-body .controller.ds4.edit .abxy .button.pressed::after,
-body .ds4.edit .abxy .button.pressed::after,
-body .edit .abxy .button.pressed::after {
-  width: 22px !important;
-  height: 22px !important;
-}
-
-
-/* v15 mapping correction confirmed by user:
-   On GamepadViewer s=5, the pressed node we treated as Square is actually Triangle.
-   Place that state directly on the printed Triangle button. */
-body .edit .controller.ds4 .abxy .x.pressed::after,
-body .controller.ds4.edit .abxy .x.pressed::after,
-body .ds4.edit .abxy .x.pressed::after,
-body .edit .abxy .x.pressed::after {
-  left: calc(50vw + 208px) !important;
-  top: calc(50vh - 175px) !important;
-}
-
-/* Disable the previous y-state visual temporarily until its real PS mapping
-   is identified from the next pressed-button screenshot. */
-body .edit .controller.ds4 .abxy .y.pressed::after,
-body .controller.ds4.edit .abxy .y.pressed::after,
-body .ds4.edit .abxy .y.pressed::after,
-body .edit .abxy .y.pressed::after {
-  display: none !important;
-}
-
-
-/* v16 diagnostic correction from user test:
-   User pressed ONLY Square. The active GamepadViewer state is the one currently
-   rendering far to the right. Force that state (.y) onto the printed Square.
-   Keep .x hidden for this single-button mapping test. */
-body .edit .controller.ds4 .abxy .y.pressed::after,
-body .controller.ds4.edit .abxy .y.pressed::after,
-body .ds4.edit .abxy .y.pressed::after,
-body .edit .abxy .y.pressed::after {
-  display: block !important;
-  left: calc(50vw + 111px) !important;
-  top: calc(50vh - 80px) !important;
-  transform: none !important;
-}
-
-body .edit .controller.ds4 .abxy .x.pressed::after,
-body .controller.ds4.edit .abxy .x.pressed::after,
-body .ds4.edit .abxy .x.pressed::after,
-body .edit .abxy .x.pressed::after {
-  display: none !important;
-}
-
-
-/* v17 cleanup: hide ALL legacy/generated ABXY pseudo highlights first.
-   We will re-enable exactly one confirmed state at a time. */
-body .abxy .button::before,
-body .abxy .button::after,
-body .edit .abxy .button::before,
-body .edit .abxy .button::after,
-body .controller.ds4 .abxy .button::before,
-body .controller.ds4 .abxy .button::after {
+.controller.ds4 .abxy .button::before,
+.controller.ds4 .abxy .button::after,
+.edit .controller.ds4 .abxy .button::before,
+.edit .controller.ds4 .abxy .button::after {
   content: none !important;
   display: none !important;
 }
 
-/* Confirmed diagnostic: only the Square-trigger state (.y) may render. */
-body .edit .controller.ds4 .abxy .y.pressed::after,
-body .controller.ds4.edit .abxy .y.pressed::after,
-body .ds4.edit .abxy .y.pressed::after,
-body .edit .abxy .y.pressed::after {
-  content: "" !important;
-  display: block !important;
-  position: fixed !important;
-  width: 22px !important;
-  height: 22px !important;
-  left: calc(50vw + 111px) !important;
-  top: calc(50vh - 80px) !important;
-  margin: 0 !important;
-  transform: none !important;
+/* Keep sticks functional and visible. */
+.controller.ds4 .stick,
+.edit .controller.ds4 .stick {
   border-radius: 50% !important;
-  background: rgba(255,106,0,.84) !important;
-  box-shadow: inset 0 0 6px rgba(255,225,140,.95),0 0 6px rgba(255,106,0,.72) !important;
-  z-index: 2147483647 !important;
 }
 
-/* Explicitly suppress every other face-button pseudo overlay. */
-body .abxy .x.pressed::after,
-body .abxy .a.pressed::after,
-body .abxy .b.pressed::after {
-  content: none !important;
-  display: none !important;
-}
+/* Diagnostic v18:
+   NO custom orange press indicators.
+   This verifies that the duplicate dots were entirely caused by the accumulated CSS.
+   Once clean, face-button pressed fills will be added back one at a time. */
