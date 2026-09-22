@@ -244,3 +244,57 @@ html, body {
   left: calc(50vw + 145px) !important;
   top: calc(50vh - 44px) !important;
 }
+
+
+/* v13: GamepadViewer marks ABXY with .pressed but the stock node geometry is unreliable.
+   Use the node only as a state trigger and position the pseudo element in viewport space.
+   Strong selectors + transform reset prevent inherited stock transforms. */
+body .edit .controller.ds4 .abxy .button.pressed::after,
+body .controller.ds4.edit .abxy .button.pressed::after,
+body .ds4.edit .abxy .button.pressed::after,
+body .edit .abxy .button.pressed::after {
+  content: "" !important;
+  position: fixed !important;
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin: 0 !important;
+  transform: none !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(255,106,0,.84) !important;
+  box-shadow: inset 0 0 6px rgba(255,225,140,.95), 0 0 6px rgba(255,106,0,.72) !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+}
+
+/* Positions measured against the visible DS4 artwork.
+   Values are center-relative and include half the 24px overlay size. */
+body .edit .controller.ds4 .abxy .x.pressed::after,
+body .controller.ds4.edit .abxy .x.pressed::after,
+body .ds4.edit .abxy .x.pressed::after,
+body .edit .abxy .x.pressed::after {
+  left: calc(50vw + 111px) !important;
+  top: calc(50vh - 80px) !important;
+}
+body .edit .controller.ds4 .abxy .y.pressed::after,
+body .controller.ds4.edit .abxy .y.pressed::after,
+body .ds4.edit .abxy .y.pressed::after,
+body .edit .abxy .y.pressed::after {
+  left: calc(50vw + 146px) !important;
+  top: calc(50vh - 115px) !important;
+}
+body .edit .controller.ds4 .abxy .b.pressed::after,
+body .controller.ds4.edit .abxy .b.pressed::after,
+body .ds4.edit .abxy .b.pressed::after,
+body .edit .abxy .b.pressed::after {
+  left: calc(50vw + 182px) !important;
+  top: calc(50vh - 80px) !important;
+}
+body .edit .controller.ds4 .abxy .a.pressed::after,
+body .controller.ds4.edit .abxy .a.pressed::after,
+body .ds4.edit .abxy .a.pressed::after,
+body .edit .abxy .a.pressed::after {
+  left: calc(50vw + 146px) !important;
+  top: calc(50vh - 45px) !important;
+}
