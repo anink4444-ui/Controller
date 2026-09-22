@@ -123,3 +123,18 @@ body {
   transform: translate(-50%, -50%) !important;
   transform-origin: center center !important;
 }
+
+
+/* Viewport centering fix: use viewport units so GamepadViewer wrappers cannot offset the skin */
+.controller.edit,
+.controller.ds4.edit,
+.controller.ps5.edit,
+.edit .controller.ds4 {
+  position: fixed !important;
+  left: 50vw !important;
+  top: 50vh !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translate(-50%, -50%) !important;
+}
