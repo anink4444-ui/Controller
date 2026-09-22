@@ -129,3 +129,49 @@ html, body {
   box-shadow: inset 0 0 8px rgba(255,220,120,.95),
               0 0 7px rgba(255,106,0,.72) !important;
 }
+
+
+/* v11 DualShock 4 artwork calibration.
+   Face buttons on the new DS4 image are approximately:
+   Square (497,421), Triangle (532,386), Circle (568,421), Cross (532,456)
+   in the displayed 749x500 controller coordinate space. */
+.edit .controller.ds4 .abxy,
+.controller.ds4.edit .abxy,
+.ds4.edit .abxy {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 749px !important;
+  height: 500px !important;
+  transform: none !important;
+}
+.edit .controller.ds4 .abxy .button,
+.controller.ds4.edit .abxy .button,
+.ds4.edit .abxy .button {
+  position: absolute !important;
+  width: 27px !important;
+  height: 27px !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+}
+.edit .controller.ds4 .abxy .x,
+.controller.ds4.edit .abxy .x,
+.ds4.edit .abxy .x { left: 484px !important; top: 192px !important; }
+.edit .controller.ds4 .abxy .y,
+.controller.ds4.edit .abxy .y,
+.ds4.edit .abxy .y { left: 519px !important; top: 157px !important; }
+.edit .controller.ds4 .abxy .b,
+.controller.ds4.edit .abxy .b,
+.ds4.edit .abxy .b { left: 555px !important; top: 192px !important; }
+.edit .controller.ds4 .abxy .a,
+.controller.ds4.edit .abxy .a,
+.ds4.edit .abxy .a { left: 519px !important; top: 227px !important; }
+
+.edit .controller.ds4 .abxy .button.pressed,
+.controller.ds4.edit .abxy .button.pressed,
+.ds4.edit .abxy .button.pressed {
+  background: rgba(255,106,0,.78) !important;
+  box-shadow: inset 0 0 7px rgba(255,220,120,.95), 0 0 6px rgba(255,106,0,.7) !important;
+}
