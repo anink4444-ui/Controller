@@ -138,3 +138,21 @@ body {
   margin: 0 !important;
   transform: translate(-50%, -50%) !important;
 }
+
+
+/* FINAL positioning override.
+   GamepadViewer's own .controller rule already centers the pad.
+   Undo our transform overrides so we don't double-translate it. */
+.controller.edit,
+.controller.ds4.edit,
+.controller.ps5.edit,
+.edit .controller.ds4 {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin-top: 30px !important;
+  margin-left: 0 !important;
+  transform: translate(-50%, -50%) !important;
+}
